@@ -6,6 +6,12 @@
   <description>Log4j shell command</description>
   <version>1.0.0</version>
   <packaging>bundle</packaging>
+  <url>http://code.google.com/p/osgi-utils/</url>
+  <scm>
+	  <connection>scm:svn:https://osgi-utils.googlecode.com/svn/trunk</connection>
+	  <developerConnection>scm:svn:https://osgi-utils.googlecode.com/svn/trunk</developerConnection>
+	  <url>http://code.google.com/p/osgi-utils/</url>
+	</scm>
   <dependencies>
   	<dependency>
 		<groupId>org.apache.felix</groupId>
@@ -67,5 +73,5 @@
 		</configuration>
       </plugin>     
     </plugins>
-  </build>
+  </build>  
 </project>
