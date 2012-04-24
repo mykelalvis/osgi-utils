@@ -2,7 +2,7 @@
 <MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.0.0">
 	<OCD description="Postgresql DataSource Service Factory" 
 	name="Postgresql DataSource Service Factory" 
-	id="com.joaoassuncao.osgi.jdbc.datasource">
+	id="com.joaoassuncao.osgi.jdbc.postgresql">
 		<AD name="DataSource Name" id="dataSourceName" required="true" type="String"/>
 		<AD name="Database Name" id="databaseName" required="true" type="String"/>	
 		<AD name="Server Name" id="serverName" required="false" type="String"/>
@@ -10,8 +10,8 @@
 		<AD name="User" id="user" required="false" type="String"/>
 		<AD name="Password" id="password" required="false" type="String"/>
 	</OCD>
-	<Designate pid="com.joaoassuncao.osgi.jdbc.datasource" factoryPid="com.joaoassuncao.osgi.jdbc.datasource"> 
-		<Object ocdref="com.joaoassuncao.osgi.jdbc.datasource"/>
+	<Designate pid="com.joaoassuncao.osgi.jdbc.postgresql" factoryPid="com.joaoassuncao.osgi.jdbc.postgresql"> 
+		<Object ocdref="com.joaoassuncao.osgi.jdbc.postgresql"/>
 	</Designate>			
 </MetaData>
 

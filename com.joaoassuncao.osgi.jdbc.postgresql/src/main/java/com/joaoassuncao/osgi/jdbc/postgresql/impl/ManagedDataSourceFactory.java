@@ -23,7 +23,7 @@ import org.osgi.service.jdbc.DataSourceFactory;
  */
 public class ManagedDataSourceFactory implements ManagedServiceFactory {
 
-	public static String PID = "com.joaoassuncao.osgi.jdbc.datasource";
+	public static String PID = "com.joaoassuncao.osgi.jdbc.postgresql";
 	private HashMap<String, DataSourceEntry> dataSources = new HashMap<String, DataSourceEntry>();
 	private BundleContext bundleContext;
 	private DataSourceFactory datasourceFactory; 
@@ -35,13 +35,10 @@ public class ManagedDataSourceFactory implements ManagedServiceFactory {
 	
 	public String getName() {
 		return PID;
-		//return "JDBC DataSource Factory";
 	}
 
 	@SuppressWarnings("rawtypes")
-	public void updated(String pid, Dictionary properties)
-			throws ConfigurationException {
-		System.out.println("Updated invoked");
+	public void updated(String pid, Dictionary properties) throws ConfigurationException {
 		DataSourceEntry dsEntry = dataSources.get(pid);
 		if(dsEntry!=null)
 		{
@@ -75,10 +72,20 @@ public class ManagedDataSourceFactory implements ManagedServiceFactory {
 		Properties dsProperties = new Properties();
 		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_DATABASE_NAME);
 		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_DATASOURCE_NAME);
-		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_SERVER_NAME);
-		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_PORT_NUMBER);		
-		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_USER);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_DESCRIPTION);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_INITIAL_POOL_SIZE);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_MAX_IDLE_TIME);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_MAX_POOL_SIZE);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_MAX_STATEMENTS);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_MIN_POOL_SIZE);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_NETWORK_PROTOCOL);
 		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_PASSWORD);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_PORT_NUMBER);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_PROPERTY_CYCLE);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_ROLE_NAME);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_SERVER_NAME);						
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_URL);
+		copyProperty(properties, dsProperties, DataSourceFactory.JDBC_USER);		
 		return dsProperties;
 	}
 	
