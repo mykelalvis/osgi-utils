@@ -1,0 +1,1 @@
+This project keeps the code of OSGI utilities developed by me.
